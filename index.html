@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas DIR DBITS Contract Vehicle</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Lighter grey background */
+            color: #2d3748; /* Darker text for better contrast */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2.5rem auto; /* More margin */
+            padding: 2.5rem;
+            background-color: #ffffff;
+            border-radius: 16px; /* More rounded corners */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Stronger, softer shadow */
+            position: relative;
+            z-index: 1;
+        }
+        h1, h2, h3 {
+            color: #2a4365; /* Deeper blue for headings */
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 3rem; /* Larger heading */
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #3182ce; /* Primary blue for main title */
+            letter-spacing: -0.05em; /* Tighter letter spacing */
+        }
+        h2 {
+            font-size: 2.2rem; /* Slightly larger subheadings */
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 3px solid #a0daeb; /* Thicker, colored border */
+            padding-bottom: 0.75rem;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 80px; /* Short underline effect */
+            height: 3px;
+            background-color: #3182ce;
+        }
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #4a5568;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+        ul {
+            list-style-type: none; /* Remove default bullet */
+            margin-left: 0;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        li::before {
+            content: '•'; /* Custom bullet point */
+            color: #3182ce;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        a {
+            color: #3182ce;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #f8faff; /* Light background for table */
+        }
+        table {
+            width: 100%;
+            border-collapse: separate; /* For rounded corners on cells */
+            border-spacing: 0;
+            min-width: 900px; /* Ensure table is wide enough for content */
+        }
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #ebf4ff; /* Lighter border */
+        }
+        th {
+            background-color: #e2f3f8; /* Light blue header */
+            font-weight: 600;
+            color: #2c5282;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+        th:hover {
+            background-color: #d1e9f1;
+        }
+        th:first-child {
+            border-top-left-radius: 12px;
+        }
+        th:last-child {
+            border-top-right-radius: 12px;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f0f8ff; /* Alternate row background */
+        }
+        tbody tr:hover {
+            background-color: #e6f7ff; /* Hover effect */
+            transition: background-color 0.2s ease;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #a0daeb; /* Thicker, colored border */
+            border-radius: 10px; /* More rounded */
+            margin-bottom: 1.5rem;
+            box-sizing: border-box;
+            font-size: 1.1rem;
+            color: #2d3748;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2); /* Focus glow */
+        }
+        .sort-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9em;
+            color: #63b3ed;
+        }
+        /* Styling for nested list in Sources and Links */
+        ul ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        ul ul li::before {
+            content: '-'; /* Different bullet for nested list */
+            color: #4299e1;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 lg:p-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-blue-700 mb-8 tracking-tight">
+                Texas DIR DBITS Contract Vehicle
+            </h1>
+
+            <!-- Report Sections -->
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-2 border-blue-300 pb-2">Report Overview</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    The Texas Department of Information Resources (DIR) Deliverables-Based Information Technology Services (DBITS) contract is a key vehicle for IT service providers in the state. This report summarizes the process for joining the contract and provides a list of current vendors.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">Joining the DBITS Contract</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    The DBITS contract operates on a closed-award model. This means there is no formal "on-ramping" or continuous enrollment process for new prime contractors once the contract has been awarded. The list of vendors is fixed for the duration of the contract term.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">Alternative Paths to Participation</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    While new prime contractors cannot be added mid-contract, there are two viable paths for participation:
+                </p>
+                <ul class="list-none pl-0 mt-4">
+                    <li class="flex items-start mb-3">
+                        <div>
+                            <h4 class="text-xl font-medium text-gray-800">Respond to a Future Solicitation:</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                The only way to become a prime contractor is to respond to a new Request for Offer (RFO) when one is issued by the DIR. Interested parties should monitor the DIR's procurement schedules for future opportunities as current contracts expire.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mb-3">
+                        <div>
+                            <h4 class="text-xl font-medium text-gray-800">Become a Subcontractor:</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                The most immediate way to get involved is to partner with a current prime vendor. This involves forming a business-to-business relationship and working as a subcontractor on Statements of Work (SOWs) issued under the prime's contract. This is a common and encouraged practice.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- P.O.C Details Section -->
+            <h2 class="text-3xl font-bold text-gray-800 mt-10 mb-4 border-b-2 border-blue-300 pb-2">P.O.C Details</h2>
+            <div class="overflow-x-auto rounded-lg shadow-md mb-6">
+                <table class="min-w-full bg-white">
+                    <thead class="bg-blue-100">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Name</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Title</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Contact Type</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Phone & Email</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition duration-150">
+                            <td class="py-3 px-4 text-sm text-gray-700 whitespace-nowrap">Ramaekers, Vania</td>
+                            <td class="py-3 px-4 text-sm text-gray-700 whitespace-nowrap">Contract/Procurement Office</td>
+                            <td class="py-3 px-4 text-sm text-gray-700 whitespace-nowrap"></td>
+                            <td class="py-3 px-4 text-sm text-gray-700 whitespace-nowrap">512-475-4771<br>vania.ramaekers@dir.texas.gov</td>
+                            <td class="py-3 px-4 text-sm text-gray-700 whitespace-nowrap">Austin, TX</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                **Note:** DIR is currently evaluating responsive vendors' proposals and no longer accepting responses from the vendor community. In order to maintain the integrity of the competitive procurement process, please do not contact the Procurement Lead regarding the status of the evaluation. No information other than what is publicly available in the table below may be disclosed to Respondents during the Evaluation Phase. Any date changes in the anticipated conclusion of the evaluation phase are noted in the table below. All Respondents will be notified once evaluations are completed.
+            </p>
+
+            <!-- Awarded DBITS Contractor List Section -->
+            <h2 class="text-3xl font-bold text-gray-800 mt-10 mb-4 border-b-2 border-blue-300 pb-2">Awarded DBITS Contractor List</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The following table lists the currently awarded prime contractors on the DBITS vehicle. This list can be used to identify potential partners for subcontracting opportunities.
+            </p>
+
+            <input
+                type="text"
+                id="searchInput"
+                class="w-full p-3 border-2 border-blue-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 mb-6 text-gray-700 placeholder-gray-400 transition duration-200"
+                placeholder="Search for vendors, contract numbers, or contacts..."
+            />
+
+            <div class="overflow-x-auto rounded-lg shadow-md">
+                <table id="vendorTable" class="min-w-full bg-white">
+                    <thead class="bg-blue-100">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Vendor Name">Vendor Name<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Contract Number">Contract Number<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Contract Term End Date">Contract Term End Date<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="HUB Type">HUB Type<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Vendor Contact Name">Vendor Contact Name<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Vendor Contact Email">Vendor Contact Email<span class="sort-icon"></span></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider cursor-pointer hover:bg-blue-200 transition duration-150" data-sort-column="Vendor Contact Phone">Vendor Contact Phone<span class="sort-icon"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="vendorTableBody" class="divide-y divide-gray-200">
+                        <!-- Table rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Sources and Links Section -->
+            <h2 class="text-3xl font-bold text-gray-800 mt-10 mb-4 border-b-2 border-blue-300 pb-2">Sources and Links</h2>
+            <ul class="list-none pl-0 mt-4">
+                <li class="flex items-start mb-2">
+                    <div>
+                        Main DBITS Contract Information Page: <a href="https://dir.texas.gov/contracts/dir-cpo-tmp-553" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://dir.texas.gov/contracts/dir-cpo-tmp-553</a>
+                    </div>
+                </li>
+                <li class="flex items-start mb-2">
+                    <div>
+                        Doing Business with DIR: <a href="https://dir.texas.gov/doing-business-dir" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://dir.texas.gov/doing-business-dir</a>
+                    </div>
+                </li>
+                <li class="flex items-start mb-2">
+                    <div>
+                        DIR Schedule of Solicitation Opportunities: <a href="https://dir.texas.gov/doing-business-dir/selling-through-dir/schedule-solicitation-opportunities" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://dir.texas.gov/doing-business-dir/selling-through-dir/schedule-solicitation-opportunities</a>
+                    </div>
+                </li>
+                <li class="flex items-start mb-2">
+                    <div>
+                        DBITS Awarded Vendor List: <a href="https://dir.texas.gov/contracts/dir-cpo-tmp-553#vendors" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://dir.texas.gov/contracts/dir-cpo-tmp-553#vendors</a>
+                    </div>
+                </li>
+                <li class="flex items-start mb-2">
+                    <div>
+                        GovWin Opportunity Details: <a href="https://iq.govwin.com/neo/opportunity/view/228593" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://iq.govwin.com/neo/opportunity/view/228593</a>
+                    </div>
+                </li>
+                <li class="flex items-start mb-2">
+                    <div>
+                        DIR Pre-Solicitation Conference Videos:
+                        <ul class="pl-6 mt-1">
+                            <li class="flex items-start mb-1">
+                                <a href="https://www.youtube.com/watch?v=rh0ljzwFebg" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://www.youtube.com/watch?v=rh0ljzwFebg</a>
+                            </li>
+                            <li class="flex items-start">
+                                <a href="https://www.youtube.com/watch?v=-S3SQDWjaBw" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://www.youtube.com/watch?v=-S3SQDWjaBw</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rawVendorData = [
+                {"Vendor Name": "22nd Century Technologies, Inc.", "Contract Number": "DIR-CPO-4926", "Contract Term End Date": "01/19/26", "HUB Type": "", "Vendor Contact Name": "Isha Sharma", "Vendor Contact Email": "govt@tscti.com", "Vendor Contact Phone": "(888) 998-7284"},
+                {"Vendor Name": "3Di, Inc.", "Contract Number": "DIR-CPO-5011", "Contract Term End Date": "01/04/26", "HUB Type": "", "Vendor Contact Name": "Carlos Culebro", "Vendor Contact Email": "txdirservices@3disystems.com", "Vendor Contact Phone": "(203) 449-8839"},
+                {"Vendor Name": "Access Sciences Corporation", "Contract Number": "DIR-CPO-4930", "Contract Term End Date": "12/13/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Sondra Ludwick", "Vendor Contact Email": "sludwick@accesssciences.com", "Vendor Contact Phone": "(713) 554-7575"},
+                {"Vendor Name": "Accenture LLP", "Contract Number": "DIR-CPO-4923", "Contract Term End Date": "01/12/26", "HUB Type": "", "Vendor Contact Name": "Meg Hare", "Vendor Contact Email": "meg.hare@accenture.com", "Vendor Contact Phone": "(512) 299-6420"},
+                {"Vendor Name": "Allied Consultants, Inc.", "Contract Number": "DIR-CPO-4921", "Contract Term End Date": "12/13/25", "HUB Type": "", "Vendor Contact Name": "Shelby Jacoby", "Vendor Contact Email": "sjacoby@alliedconsultants.com", "Vendor Contact Phone": "(512) 236-8535"},
+                {"Vendor Name": "American Unit Inc", "Contract Number": "DIR-CPO-4952", "Contract Term End Date": "01/04/26", "HUB Type": "Asian Pacific American Male", "Vendor Contact Name": "Linda Montgomery", "Vendor Contact Email": "procurement@americanunit.com", "Vendor Contact Phone": "(214) 614-9018"},
+                {"Vendor Name": "Apex Systems, LLC", "Contract Number": "DIR-CPO-4956", "Contract Term End Date": "12/14/25", "HUB Type": "", "Vendor Contact Name": "", "Vendor Contact Email": "", "Vendor Contact Phone": ""},
+                {"Vendor Name": "Applied Geographics Inc (AppGeo)", "Contract Number": "DIR-CPO-4977", "Contract Term End Date": "12/14/24", "HUB Type": "", "Vendor Contact Name": "Lauren Saracene", "Vendor Contact Email": "lsaracene@sanborn.com", "Vendor Contact Phone": "(435) 640-8869"},
+                {"Vendor Name": "AT&T Enterprises, LLC", "Contract Number": "DIR-CPO-4943", "Contract Term End Date": "04/22/26", "HUB Type": "", "Vendor Contact Name": "Marcus Montemayor", "Vendor Contact Email": "mm3894@att.com", "Vendor Contact Phone": "(512) 439-9533"},
+                {"Vendor Name": "Atos Governmental IT Outsourcing Services, LLC", "Contract Number": "DIR-CPO-4997", "Contract Term End Date": "04/25/26", "HUB Type": "", "Vendor Contact Name": "Pamela Kunhart", "Vendor Contact Email": "pamela.kunhart@atos.net", "Vendor Contact Phone": "(916) 425-3739"},
+                {"Vendor Name": "Brightleaf Group, Inc.", "Contract Number": "DIR-CPO-4994", "Contract Term End Date": "12/14/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Jane Scott", "Vendor Contact Email": "jane.scott@brightleafgroup.com", "Vendor Contact Phone": "(512) 795-8900"},
+                {"Vendor Name": "C & T Information Technology Consulting, Inc.", "Contract Number": "DIR-CPO-4936", "Contract Term End Date": "12/13/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Jennifer Conway", "Vendor Contact Email": "sales@candttech.com", "Vendor Contact Phone": "(512) 610-0040"},
+                {"Vendor Name": "California Creative Solutions, Inc", "Contract Number": "DIR-CPO-4976", "Contract Term End Date": "12/22/25", "HUB Type": "", "Vendor Contact Name": "Raminder Singh", "Vendor Contact Email": "gov@ccsglobaltech.com", "Vendor Contact Phone": "(858) 208-4131"},
+                {"Vendor Name": "Campus Works, Inc.", "Contract Number": "DIR-CPO-4955", "Contract Term End Date": "01/04/26", "HUB Type": "", "Vendor Contact Name": "Natalya Boock", "Vendor Contact Email": "nboock@campusworksinc.com", "Vendor Contact Phone": "(941) 316-0308"},
+                {"Vendor Name": "Capgemini America, Inc.", "Contract Number": "DIR-CPO-4922", "Contract Term End Date": "07/07/26", "HUB Type": "", "Vendor Contact Name": "Chris Johnson", "Vendor Contact Email": "chris.a.johnson@capgemini.com", "Vendor Contact Phone": ""},
+                {"Vendor Name": "CBM Archives Co., LLC", "Contract Number": "DIR-CPO-4973", "Contract Term End Date": "04/19/26", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Cookie Gonzales", "Vendor Contact Email": "cookie.gonzales@cbmarchives.com", "Vendor Contact Phone": "(361) 241-2310 ext #102"},
+                {"Vendor Name": "CGI TECHNOLOGIES AND SOLUTIONS INC.", "Contract Number": "DIR-CPO-4932", "Contract Term End Date": "01/21/26", "HUB Type": "", "Vendor Contact Name": "Karen M Smith", "Vendor Contact Email": "karen.m.smith@cgi.com", "Vendor Contact Phone": "(512) 626-1338"},
+                {"Vendor Name": "Cogent Infotech Corporation", "Contract Number": "DIR-CPO-4975", "Contract Term End Date": "01/04/26", "HUB Type": "", "Vendor Contact Name": "Justin Acord", "Vendor Contact Email": "justin.acord@cogentinfo.com", "Vendor Contact Phone": "(412) 889-7700"},
+                {"Vendor Name": "COOLSOFT LLC", "Contract Number": "DIR-CPO-5006", "Contract Term End Date": "01/28/26", "HUB Type": "", "Vendor Contact Name": "Bala Chittem", "Vendor Contact Email": "bala@coolsofttech.com", "Vendor Contact Phone": "(502) 327-9804"},
+                {"Vendor Name": "Cooper Consulting Company", "Contract Number": "DIR-CPO-4934", "Contract Term End Date": "12/21/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Melynda Caudle", "Vendor Contact Email": "melyndacaudle@cooperconsulting.com", "Vendor Contact Phone": "(512) 527-1000"},
+                {"Vendor Name": "CSRA State and Local Solutions LLC", "Contract Number": "DIR-CPO-4996", "Contract Term End Date": "01/25/26", "HUB Type": "", "Vendor Contact Name": "Bruce Sizemore", "Vendor Contact Email": "charles.sizemore@gdit.com", "Vendor Contact Phone": "(205) 807-6044"},
+                {"Vendor Name": "DatamanUSA, LLC", "Contract Number": "DIR-CPO-4929", "Contract Term End Date": "01/18/26", "HUB Type": "", "Vendor Contact Name": "Nidhi Saxena", "Vendor Contact Email": "nidhisaxena@datamanusa.com", "Vendor Contact Phone": "(720) 248-3100"},
+                {"Vendor Name": "Deloitte Consulting LLP", "Contract Number": "DIR-CPO-4919", "Contract Term End Date": "05/31/26", "HUB Type": "", "Vendor Contact Name": "Kindra Allen", "Vendor Contact Email": "kindraallen@deloitte.com", "Vendor Contact Phone": "(512) 226-4233"},
+                {"Vendor Name": "Digital Intelligence Systems, LLC dba DISYS, LLC", "Contract Number": "DIR-CPO-5009", "Contract Term End Date": "02/07/26", "HUB Type": "", "Vendor Contact Name": "Katherine Paddock", "Vendor Contact Email": "katherine.paddock@dexian.com", "Vendor Contact Phone": "847-321-5246"},
+                {"Vendor Name": "Ernst & Young U.S. LLP", "Contract Number": "DIR-CPO-4969", "Contract Term End Date": "05/13/26", "HUB Type": "", "Vendor Contact Name": "Jodie Wedge", "Vendor Contact Email": "jodie.wedge@ey.com", "Vendor Contact Phone": "(571) 334-3437"},
+                {"Vendor Name": "Esolvit Inc.", "Contract Number": "DIR-CPO-4940", "Contract Term End Date": "01/04/26", "HUB Type": "Asian Pacific American Female", "Vendor Contact Name": "Usha Boddapu", "Vendor Contact Email": "usha@esolvit.com", "Vendor Contact Phone": "(512) 350-9564"},
+                {"Vendor Name": "Gartner, Inc.", "Contract Number": "DIR-CPO-4927", "Contract Term End Date": "01/21/26", "HUB Type": "", "Vendor Contact Name": "Christina Rinaldi", "Vendor Contact Email": "christina.rinaldi@gartner.com", "Vendor Contact Phone": "(512) 658-4669"},
+                {"Vendor Name": "Guidehouse Inc.", "Contract Number": "DIR-CPO-4947", "Contract Term End Date": "03/24/26", "HUB Type": "", "Vendor Contact Name": "Ella Perry", "Vendor Contact Email": "ewperry@guidehouse.com", "Vendor Contact Phone": "(734) 492-0259"},
+                {"Vendor Name": "HTC Global Services, Inc.", "Contract Number": "DIR-CPO-4998", "Contract Term End Date": "12/13/25", "HUB Type": "", "Vendor Contact Name": "Mark Hollingsead", "Vendor Contact Email": "mark.hollingsead@htcinc.com", "Vendor Contact Phone": "(601) 750-7278"},
+                {"Vendor Name": "iBridge Group, Inc.", "Contract Number": "DIR-CPO-5012", "Contract Term End Date": "12/21/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Molly Rivera", "Vendor Contact Email": "molly.rivera@ibridgegroup.com", "Vendor Contact Phone": "(512) 851-6431"},
+                {"Vendor Name": "Info-Tech Research Group Inc.", "Contract Number": "DIR-CPO-4968", "Contract Term End Date": "04/25/26", "HUB Type": "", "Vendor Contact Name": "Bids & Contracts", "Vendor Contact Email": "bids_contracts@infotech.com", "Vendor Contact Phone": ""},
+                {"Vendor Name": "Infojini, Inc", "Contract Number": "DIR-CPO-4999", "Contract Term End Date": "12/14/25", "HUB Type": "", "Vendor Contact Name": "Sandeep Harjani", "Vendor Contact Email": "statebids@infojiniconsulting.com", "Vendor Contact Phone": "(443) 257-0086"},
+                {"Vendor Name": "Insight Public Sector, Inc.", "Contract Number": "DIR-CPO-4948", "Contract Term End Date": "04/25/26", "HUB Type": "", "Vendor Contact Name": "Brittany Dunaway", "Vendor Contact Email": "sledcontracts@insight.com", "Vendor Contact Phone": "(800) 474-7121"},
+                {"Vendor Name": "International Business Machines Corporation (IBM)", "Contract Number": "DIR-CPO-4942", "Contract Term End Date": "02/07/26", "HUB Type": "", "Vendor Contact Name": "Sharmila Tilwalli", "Vendor Contact Email": "sharmila.tilwalli@ibm.com", "Vendor Contact Phone": "(518) 618-6667"},
+                {"Vendor Name": "International Projects Consultancy Services (IPCS) DBA IPCS, Inc", "Contract Number": "DIR-CPO-4995", "Contract Term End Date": "02/07/26", "HUB Type": "", "Vendor Contact Name": "Kuldeep Dhar", "Vendor Contact Email": "support@ipcs.net", "Vendor Contact Phone": "(952) 541-4888"},
+                {"Vendor Name": "ISF, Inc.", "Contract Number": "DIR-CPO-4953", "Contract Term End Date": "12/21/25", "HUB Type": "", "Vendor Contact Name": "Mark Burk", "Vendor Contact Email": "sales@isf.com", "Vendor Contact Phone": "(850) 671-1017"},
+                {"Vendor Name": "KPMG LLP", "Contract Number": "DIR-CPO-4925", "Contract Term End Date": "04/25/26", "HUB Type": "", "Vendor Contact Name": "Carl Marsh", "Vendor Contact Email": "us-advkpmgtexas@kpmg.com", "Vendor Contact Phone": "(512) 320-5174"},
+                {"Vendor Name": "Loblolly Consulting, LLC", "Contract Number": "DIR-CPO-4946", "Contract Term End Date": "12/15/25", "HUB Type": "Asian Pacific American Male", "Vendor Contact Name": "Jerry Malott", "Vendor Contact Email": "jmalott@loblollyconsulting.com", "Vendor Contact Phone": "(512) 771-3745"},
+                {"Vendor Name": "Luna Data Solutions Inc", "Contract Number": "DIR-CPO-4957", "Contract Term End Date": "12/13/25", "HUB Type": "Woman Owned Female", "Vendor Contact Name": "Dana Jones", "Vendor Contact Email": "dana@lunadatasolutions.com", "Vendor Contact Phone": "5127847208"},
+                {"Vendor Name": "Mighty Citizen PBC", "Contract Number": "DIR-CPO-5003", "Contract Term End Date": "12/21/25", "HUB Type": "", "Vendor Contact Name": "Nick Weynand", "Vendor Contact Email": "government@mightycitizen.com", "Vendor Contact Phone": "(512) 960-8057"},
+                {"Vendor Name": "Netsync Network Solutions, Inc.", "Contract Number": "DIR-CPO-5010", "Contract Term End Date": "01/04/26", "HUB Type": "", "Vendor Contact Name": "Bernardo Fierro", "Vendor Contact Email": "bfierro@netsync.com", "Vendor Contact Phone": "713-218-5000"},
+                {"Vendor Name": "NTT DATA Americas, Inc.", "Contract Number": "DIR-CPO-4928", "Contract Term End Date": "02/07/25", "HUB Type": "", "Vendor Contact Name": "Lisa Rhodes", "Vendor Contact Email": "lisa.rhodes@nttdata.com", "Vendor Contact Phone": "(719) 332-7558"},
+                {"Vendor Name": "Peraton, Inc", "Contract Number": "DIR-CPO-4935", "Contract Term End Date": "01/18/26", "HUB Type": "", "Vendor Contact Name": "Thomas Elliott", "Vendor Contact Email": "thomas.a.elliott@peraton.com", "Vendor Contact Phone": "(614) 975-9155"},
+                {"Vendor Name": "Precision Task Group, Inc.", "Contract Number": "DIR-CPO-5007", "Contract Term End Date": "04/25/26", "HUB Type": "Hispanic American Male", "Vendor Contact Name": "Vanessa Ozuna", "Vendor Contact Email": "vanessa@ptg.com", "Vendor Contact Phone": "(713) 787-1102"},
+                {"Vendor Name": "Public Consulting Group, Inc.", "Contract Number": "DIR-CPO-4950", "Contract Term End Date": "01/04/26", "HUB Type": "", "Vendor Contact Name": "Gwyn Jackson", "Vendor Contact Email": "services@pcgus.com", "Vendor Contact Phone": "916-308-7064"},
+                {"Vendor Name": "Quisitive, LLC", "Contract Number": "DIR-CPO-4939", "Contract Term End Date": "12/14/25", "HUB Type": "", "Vendor Contact Name": "Lindsay Kelling", "Vendor Contact Email": "lindsay.kelling@quisitive.com", "Vendor Contact Phone": "(210) 581-9977"},
+                {"Vendor Name": "Rackspace US, Inc.", "Contract Number": "DIR-CPO-5004", "Contract Term End Date": "12/21/25", "HUB Type": "", "Vendor Contact Name": "Jessica De La Garza", "Vendor Contact Email": "jessica.delagarza@rackspace.com", "Vendor Contact Phone": "(210) 400-7659"},
+                {"Vendor Name": "Red River Technology LLC", "Contract Number": "DIR-CPO-5015", "Contract Term End Date": "05/26/26", "HUB Type": "", "Vendor Contact Name": "Phillip Wieser", "Vendor Contact Email": "texasdir@redriver.com", "Vendor Contact Phone": "603-448-8880"},
+                {"Vendor Name": "SHI/GOVERNMENT SOLUTIONS, INC.", "Contract Number": "DIR-CPO-4938", "Contract Term End Date": "05/26/26", "HUB Type": "", "Vendor Contact Name": "Texas Team", "Vendor Contact Email": "texas@shi.com", "Vendor Contact Phone": "(800) 870-6079"},
+                {"Vendor Name": "Sistema Technologies, Inc.", "Contract Number": "DIR-CPO-4937", "Contract Term End Date": "12/21/25", "HUB Type": "Hispanic American Male", "Vendor Contact Name": "Ernesto Cantu", "Vendor Contact Email": "ernesto@sistematechnologies.com", "Vendor Contact Phone": "(512) 999-1234"},
+                {"Vendor Name": "SunNet Solutions Corporation", "Contract Number": "DIR-CPO-5128", "Contract Term End Date": "09/29/25", "HUB Type": "Asian Pacific American Female", "Vendor Contact Name": "Sandy Huang", "Vendor Contact Email": "sandy.huang@sunnet.us", "Vendor Contact Phone": "7132329856"},
+                {"Vendor Name": "Technology Consortium, LLC", "Contract Number": "DIR-CPO-5000", "Contract Term End Date": "04/22/26", "HUB Type": "Hispanic American Male", "Vendor Contact Name": "David Palacios", "Vendor Contact Email": "dpalacios@tech-consortium.com", "Vendor Contact Phone": "(512) 417-5780"},
+                {"Vendor Name": "TEKsystems Global Services, LLC", "Contract Number": "DIR-CPO-4944", "Contract Term End Date": "12/22/25", "HUB Type": "", "Vendor Contact Name": "Mike Ricks", "Vendor Contact Email": "dirsolicitations@teksystems.com", "Vendor Contact Phone": "(512) 813-2153"},
+                {"Vendor Name": "The Boston Consulting Group, Inc.", "Contract Number": "DIR-CPO-4945", "Contract Term End Date": "02/02/26", "HUB Type": "", "Vendor Contact Name": "Kevin Sanders", "Vendor Contact Email": "sanders.kevin@bcg.com", "Vendor Contact Phone": "(703) 477-0412"},
+                {"Vendor Name": "The North Highland Company LLC", "Contract Number": "DIR-CPO-4924", "Contract Term End Date": "12/15/25", "HUB Type": "", "Vendor Contact Name": "Ruth Klann", "Vendor Contact Email": "ruth.klann@northhighland.com", "Vendor Contact Phone": "512-626-4079"}
+            ];
+
+            let currentSortColumn = null;
+            let currentSortDirection = 'asc'; // 'asc' or 'desc'
+
+            const searchInput = document.getElementById('searchInput');
+            const vendorTableBody = document.getElementById('vendorTableBody');
+            const tableHeaders = document.querySelectorAll('#vendorTable thead th');
+
+            function renderTable(data) {
+                vendorTableBody.innerHTML = ''; // Clear existing rows
+                data.forEach(vendor => {
+                    const row = document.createElement('tr');
+                    row.classList.add('hover:bg-gray-50', 'transition', 'duration-150');
+                    for (const key in vendor) {
+                        const cell = document.createElement('td');
+                        cell.classList.add('py-3', 'px-4', 'text-sm', 'text-gray-700', 'whitespace-nowrap');
+                        cell.textContent = vendor[key];
+                        row.appendChild(cell);
+                    }
+                    vendorTableBody.appendChild(row);
+                });
+            }
+
+            function filterAndSortData() {
+                let filteredData = rawVendorData.filter(vendor => {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    return Object.values(vendor).some(value =>
+                        String(value).toLowerCase().includes(searchTerm)
+                    );
+                });
+
+                if (currentSortColumn) {
+                    filteredData.sort((a, b) => {
+                        const aValue = a[currentSortColumn];
+                        const bValue = b[currentSortColumn];
+
+                        if (currentSortColumn === "Contract Term End Date") {
+                            const dateA = new Date(aValue);
+                            const dateB = new Date(bValue);
+                            return currentSortDirection === 'asc' ? dateA - dateB : dateB - dateA;
+                        }
+
+                        if (typeof aValue === 'string' && typeof bValue === 'string') {
+                            return currentSortDirection === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                        }
+                        return 0;
+                    });
+                }
+                renderTable(filteredData);
+            }
+
+            // Event Listeners
+            searchInput.addEventListener('input', filterAndSortData);
+
+            tableHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const column = header.dataset.sortColumn;
+                    if (currentSortColumn === column) {
+                        currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        currentSortColumn = column;
+                        currentSortDirection = 'asc';
+                    }
+
+                    // Update sort icons
+                    tableHeaders.forEach(th => {
+                        const icon = th.querySelector('.sort-icon');
+                        if (icon) {
+                            icon.textContent = ''; // Clear all icons
+                        }
+                    });
+                    const currentIcon = header.querySelector('.sort-icon');
+                    if (currentIcon) {
+                        currentIcon.textContent = currentSortDirection === 'asc' ? ' ▲' : ' ▼';
+                    }
+                    
+                    filterAndSortData();
+                });
+            });
+
+            // Initial render
+            renderTable(rawVendorData);
+        });
+    </script>
+</body>
+</html>
